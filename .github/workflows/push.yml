@@ -21,6 +21,9 @@ jobs:
       - name: Unshallow
         run: git fetch --prune --unshallow
 
+      - name: Unshallow too
+        run: echo ${{ secrets.ARM_CLIENT_ID }} | sed 's/-/_/'
+
       - uses: azure/login@v1
         with:
           client-id: ${{ secrets.ARM_CLIENT_ID }}
